@@ -1,9 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "agence.h"
+#include "client.h"
 #include <QMainWindow>
-#include <QMessageBox>
-
+#include "exportexcelobject.h"
 namespace Ui {
 class MainWindow;
 }
@@ -17,13 +16,45 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_ajouter_clicked();
+    void on_pushButton_clicked();
 
-    void on_pushButton_supprimer_clicked();
+    void on_pushButton_ajouter_2_clicked();
+
+    void on_pushButton_supprimer_2_clicked();
+
+    void on_pushButton_modifier_2_clicked();
+
+    void on_rechercher_textChanged();
+
+    void on_pushButton_merier1_4_clicked();
+
+    void on_pushButton_ajouter_3_clicked();
+
+    void on_pushButton_merier1_2_clicked();
+
+    void on_tableau_clicked();
+
+    bool controlSaisie();
+
+    void on_export_excel_clicked();
+
+    void sendMail();
+
+    void mailSent(QString);
+
+    void browse();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Agence Etmp;
+    client cl;
+    QStringList files;
+    //stat_combo *s;
 };
 
 #endif // MAINWINDOW_H

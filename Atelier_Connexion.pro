@@ -25,21 +25,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-    agence.cpp \
+    client.cpp \
+    exportexcelobject.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    statistique.cpp
 
 HEADERS += \
-    agence.h \
+    client.h \
+    exportexcelobject.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    statistique.h
 
 FORMS += \
-        mainwindow.ui
+        mailing.ui \
+        mainwindow.ui \
+        statistique.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-QT+=sql
