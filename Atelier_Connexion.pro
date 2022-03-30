@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
 TEMPLATE = app
+QT += network
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -30,6 +31,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    smtp.cpp \
     statistique.cpp
 
 HEADERS += \
@@ -37,10 +39,10 @@ HEADERS += \
     exportexcelobject.h \
         mainwindow.h \
     connection.h \
+    smtp.h \
     statistique.h
 
 FORMS += \
-        mailing.ui \
         mainwindow.ui \
         statistique.ui
 

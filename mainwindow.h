@@ -3,6 +3,7 @@
 #include "client.h"
 #include <QMainWindow>
 #include "exportexcelobject.h"
+#include "smtp.h"
 namespace Ui {
 class MainWindow;
 }
@@ -10,7 +11,10 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+private:
+    Smtp* smtp;
+    QString msg;
+    QString mail;
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -50,11 +54,15 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_33_clicked();
+
 private:
     Ui::MainWindow *ui;
     client cl;
-    QStringList files;
-    //stat_combo *s;
+
+
 };
 
 #endif // MAINWINDOW_H

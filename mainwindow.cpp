@@ -1,12 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ui_mailing.h"
 #include "client.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QFileDialog>
 #include <QtCharts/QBarSeries>
 #include "statistique.h"
+#include "smtp.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -178,46 +178,6 @@ void MainWindow::on_export_excel_clicked()
                                     );
        }
 }
-/*//mailing
-void  MainWindow::browse()
-{
-
-    QFileDialog dialog(this);
-    dialog.setDirectory(QDir::homePath());
-    dialog.setFileMode(QFileDialog::ExistingFiles);
-
-    if (dialog.exec())
-        files = dialog.selectedFiles();
-
-    QString fileListString;
-    foreach(QString file, files)
-        fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
-
-    ui->file->setText( fileListString );
-
-}
-void   MainWindow::sendMail()
-{
-    Smtp* smtp = new Smtp("hend.amri@esprit.tn",ui->mail_pass->text(), "201JFT3367");
-    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-
-    if( !files.isEmpty() )
-        smtp->sendMail("hend.amei@esprit.tn", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText(), files );
-    else
-        smtp->sendMail("hend.amri@esprit.tn", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
-}
-void   MainWindow::mailSent(QString status)
-{
-
-    if(status == "Message sent")
-        QMessageBox::warning( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
-    ui->rcpt->clear();
-    ui->subject->clear();
-    ui->file->clear();
-    ui->msg->clear();
-    ui->mail_pass->clear();
-}
-*/
 
 void MainWindow::on_pushButton_3_clicked()
 {
@@ -233,4 +193,23 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_4_clicked()//PRENOM
 {
      ui->tableau->setModel(cl.triParPRENOM());
+}
+
+void MainWindow::on_pushButton_7_clicked()//envoyer mail
+{
+
+}
+
+void MainWindow::on_pushButton_33_clicked()//envoyer mail
+{
+    smtp = new Smtp("hend.amri@esprit.tn" , "201JFT3367", "smtp.gmail.com",465);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+    msg=ui->message_mail->toPlainText();
+
+    smtp->sendMail("test_test",ui->a_mail->text(),ui->objet_mail->text(),msg);
+
+    QMessageBox::information(nullptr, QObject::tr("SENT"),
+                             QObject::tr("Email Sended Successfully.\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
 }
