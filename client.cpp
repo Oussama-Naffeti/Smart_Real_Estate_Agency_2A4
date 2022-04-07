@@ -104,7 +104,7 @@ QSqlQueryModel * client::triParPRENOM()
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("EMAIL"));
     return model;
 }
-//BY NOM ASC
+
 bool client::clientExist(int id){
     QSqlQueryModel * model= new QSqlQueryModel();
     QString res= QString::number(id);

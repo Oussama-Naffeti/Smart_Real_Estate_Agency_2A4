@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino.cpp \
     client.cpp \
     exportexcelobject.cpp \
         main.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
     statistique.cpp
 
 HEADERS += \
+    arduino.h \
     client.h \
     exportexcelobject.h \
         mainwindow.h \

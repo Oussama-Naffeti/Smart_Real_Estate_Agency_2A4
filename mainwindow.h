@@ -58,6 +58,8 @@ private slots:
 
     void on_pushButton_33_clicked();
 
+    void on_sendBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     client cl;

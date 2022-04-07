@@ -13,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableau->setModel(cl.afficher());
+    ui->server->setText("smtp.gmail.com");
+    ui->port->setText("465");
+
+
     //ui->lineEditID->setvalidator(new QIntvalidator(0, 999999, this));
     //for email tab
     /*connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
@@ -195,21 +199,19 @@ void MainWindow::on_pushButton_4_clicked()//PRENOM
      ui->tableau->setModel(cl.triParPRENOM());
 }
 
-void MainWindow::on_pushButton_7_clicked()//envoyer mail
-{
 
-}
 
-void MainWindow::on_pushButton_33_clicked()//envoyer mail
+
+void MainWindow::on_sendBtn_clicked()
 {
-    smtp = new Smtp("hend.amri@esprit.tn" , "201JFT3367", "smtp.gmail.com",465);
+    Smtp* smtp = new Smtp(ui->uname->text(), ui->paswd->text(), ui->server->text(), ui->port->text().toInt());
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
-    msg=ui->message_mail->toPlainText();
 
-    smtp->sendMail("test_test",ui->a_mail->text(),ui->objet_mail->text(),msg);
+    smtp->sendMail(ui->uname->text(), ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
 
-    QMessageBox::information(nullptr, QObject::tr("SENT"),
-                             QObject::tr("Email Sended Successfully.\n"
-                                         "Click Cancel to exit."), QMessageBox::Cancel);
+    QMessageBox::information(nullptr, QObject::tr("Succès"),
+                QObject::tr("Le mail a été envoyé avec succès.\n"
+                            "Cliquer sur Cancel to exit."), QMessageBox::Cancel);
+
 }
