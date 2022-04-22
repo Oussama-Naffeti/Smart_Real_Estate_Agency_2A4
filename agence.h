@@ -11,7 +11,6 @@ public:
     //Constructeurs
     Agence();
     Agence(int,QString,float,int,int,int);
-    Agence (int,QString,float,int);
 
     //Getters
     int get_id();

@@ -142,7 +142,7 @@ background-color: rgb(255, 0, 0);</string>
     <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
-    <string>Manouba</string>
+    <string>Sfax</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">

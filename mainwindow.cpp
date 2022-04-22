@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "agence.h"
-#include"historique.h"
 #include "statistique.h"
 #include <QMessageBox>
 #include <QDebug>
@@ -13,9 +12,6 @@
 #include <QtPrintSupport/qprintdialog.h>
 #include <QTextDocument>
 #include <QDate>
-#include <QTranslator>
-#include <qtranslator.h>
-
 
 
 
@@ -42,7 +38,6 @@ void MainWindow::on_pushButton_ajouter_clicked()
     //int nbr_client=ui->lineEdit_nbr_client->text().toInt();
     //int nbr_bien=ui->lineEdit_nbr_bien->text().toInt();
     Agence ag(id,adresse,budget,nbr_employe,0,0);
-    int k=ag.get_id();
 
     if (id == NULL) {
             QMessageBox::critical(nullptr, QObject::tr("not OK"),
@@ -57,11 +52,6 @@ void MainWindow::on_pushButton_ajouter_clicked()
             QMessageBox::critical(nullptr, QObject::tr("not OK"),
                                   QObject::tr("Il faut saisir un nombre d'employés !"), QMessageBox::Cancel);
         }
-          else if (ag.agence_exist(ui->lineEdit_supprimer->text().toInt()) != 0) {
-        QMessageBox::critical(nullptr, QObject::tr("fail"),
-                    QObject::tr("Agence Déja existante ! \n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-        }
     else {
       bool test=ag.ajouter();
      if(test)
@@ -70,12 +60,6 @@ void MainWindow::on_pushButton_ajouter_clicked()
         QMessageBox::information(nullptr, QObject::tr("OK"),
                               QObject::tr("Ajout effectué.\n"
                                           "Click Cancel to exit."), QMessageBox::Cancel);
-        QString textajouter;
-        historique h;
-        QSqlQuery qry;
-        qry.prepare("select * from AGENCE");
-        textajouter="L'ajout d'une agence a la base de donnees d' ID : "+QString::number(k)+" a ete effectue avec succees";
-        h.write(textajouter);
 
           }
               else
@@ -100,7 +84,6 @@ void MainWindow::on_pushButton_supprimer_clicked()
                                 "Click Cancel to exit."), QMessageBox::Cancel);
     else {
     int id=ui->lineEdit_supprimer->text().toInt();
-    int k=id;
     bool test=Etmp.supprimer(id);
 
     if(test)
@@ -109,12 +92,6 @@ void MainWindow::on_pushButton_supprimer_clicked()
         QMessageBox::information(nullptr, QObject::tr("OK"),
                               QObject::tr("Suppression effectuée.\n"
                                           "Click Cancel to exit."), QMessageBox::Cancel);
-        QString textajouter;
-        historique h;
-        QSqlQuery qry;
-        qry.prepare("select * from AGENCE");
-        textajouter="La suppression d'une agence a la base de donnees d' ID : "+QString::number(k)+" a ete effectue avec succees";
-        h.write(textajouter);
 
           }
               else
@@ -156,13 +133,7 @@ void MainWindow::on_pushButton_supprimer_clicked()
 
 void MainWindow::on_pushButton_modifier_clicked()
 {
-    int id=ui->lineEdit_id->text().toInt();
-    //QString adresse=ui->lineEdit_adresse->text();
-    QString adresse=ui->comboBox_adresse->currentText();
-    float budget=ui->lineEdit_budget->text().toFloat();
-    int nbr_employe=ui->lineEdit_nbr_employe->text().toInt();
-    Agence ag(id,adresse,budget,nbr_employe);
-    int k=ag.get_id();
+    Agence ag;
     if (ui->lineEdit_id->text().isEmpty())
         QMessageBox::critical(nullptr, QObject::tr("fail"),
                     QObject::tr("veuillez entrer un id.\n"
@@ -172,7 +143,11 @@ void MainWindow::on_pushButton_modifier_clicked()
                     QObject::tr("Agence n'existe pas.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
     else {
-
+        int id=ui->lineEdit_id->text().toInt();
+        //QString adresse=ui->lineEdit_adresse->text();
+        QString adresse=ui->comboBox_adresse->currentText();
+        float budget=ui->lineEdit_budget->text().toFloat();
+        int nbr_employe=ui->lineEdit_nbr_employe->text().toInt();
         bool test = ag.modifier();
 
 if(test)
@@ -181,12 +156,6 @@ if(test)
     QMessageBox::information(nullptr, QObject::tr("OK"),
                 QObject::tr("agence modifié.\n"
                             "Click Cancel to exit."), QMessageBox::Cancel);
-    QString textajouter;
-    historique h;
-    QSqlQuery qry;
-    qry.prepare("select * from AGENCE");
-    textajouter="La modification d'une agence a la base de donnees d' ID : "+QString::number(k)+" a ete effectue avec succees";
-    h.write(textajouter);
 
 }
 else
@@ -290,11 +259,5 @@ void MainWindow::on_pushButton_imprimer_clicked()
                 }
 
                 delete document;
-
-}
-
-void MainWindow::on_pushButton_traduction_clicked()
-{
-    QMessageBox::information(this,QObject::tr("Notice"),QObject::tr("Langue: Francais"),QMessageBox::Yes);
 
 }

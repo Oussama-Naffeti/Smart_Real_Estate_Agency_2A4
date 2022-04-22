@@ -46,6 +46,19 @@
      <attribute name="title">
       <string>Agences</string>
      </attribute>
+     <widget class="QPushButton" name="pushButton_metier2">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Metier 2</string>
+      </property>
+     </widget>
      <widget class="QPushButton" name="pushButton_ajouter">
       <property name="geometry">
        <rect>
@@ -234,26 +247,23 @@ border-color: rgb(0, 170, 0);</string>
        <string>Supprimer</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_traduction">
+     <widget class="QPushButton" name="pushButton_metier1">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>80</x>
         <y>20</y>
         <width>75</width>
         <height>23</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 170, 0);</string>
-      </property>
       <property name="text">
-       <string>Traduction</string>
+       <string>Metier 1</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_statistique">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>430</x>
         <y>20</y>
         <width>75</width>
         <height>23</height>
@@ -413,7 +423,7 @@ border-color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="pushButton_imprimer">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>320</x>
         <y>20</y>
         <width>75</width>
         <height>23</height>

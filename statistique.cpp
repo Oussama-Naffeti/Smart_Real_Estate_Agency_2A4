@@ -57,7 +57,7 @@ int statistique::Statistique_partie5()
 {
     QSqlQuery query;
     int count=0 ;
-    QSqlQuery requete("select * from agence where adresse = 'Manouba'") ;
+    QSqlQuery requete("select * from agence where adresse = 'Sfax'") ;
     while(requete.next())
     {
             count++ ;
@@ -124,6 +124,7 @@ void statistique::paintEvent(QPaintEvent *)
 
     painter.setBrush(Qt::blue);
     painter.drawPie(size,0,16*y);
+    //ui->label_2->setText("Bizerte") ;
     painter.setBrush(Qt::green);
     painter.drawPie(size,16*y,16*m);
     painter.setBrush(Qt::black);

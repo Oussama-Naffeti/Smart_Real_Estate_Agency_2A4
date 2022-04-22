@@ -43,8 +43,6 @@ private slots:
 
     void on_pushButton_imprimer_clicked();
 
-    void on_pushButton_traduction_clicked();
-
 private:
     Ui::MainWindow *ui;
     Agence Etmp;

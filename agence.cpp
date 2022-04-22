@@ -30,13 +30,6 @@ Agence::Agence(int id,QString adresse,float budget,int nbr_employe,int nbr_clien
     this->nbr_client=nbr_client;
     this->nbr_bien=nbr_bien;
 }
-Agence::Agence(int id,QString adresse,float budget,int nbr_employe)
-{
-    this->id=id;
-    this->adresse=adresse;
-    this->budget=budget;
-    this->nbr_employe=nbr_employe;
-}
 // GETTERS
 int Agence::get_id()
 {

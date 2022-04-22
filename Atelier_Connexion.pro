@@ -27,7 +27,6 @@ CONFIG += c++11
 
 SOURCES += \
     agence.cpp \
-    historique.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -35,7 +34,6 @@ SOURCES += \
 
 HEADERS += \
     agence.h \
-    historique.h \
         mainwindow.h \
     connection.h \
     statistique.h
@@ -44,13 +42,8 @@ FORMS += \
         mainwindow.ui \
         statistique.ui
 
-TRANSLATIONS += lang_eng.ts
-
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 QT+=sql
-
-RESOURCES += \
-    lang.qrc
