@@ -1,6 +1,16 @@
 #include "agence.h"
 #include <QSqlQuery>
 #include <QtDebug>
+#include <QtPrintSupport/QAbstractPrintDialog>
+#include <QtPrintSupport/QPageSetupDialog>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrintPreviewDialog>
+#include <QtPrintSupport/QPrintPreviewWidget>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrinterInfo>
+#include <QtGui>
+#include <QtCore>
+
 
 Agence::Agence()
 {
@@ -19,6 +29,13 @@ Agence::Agence(int id,QString adresse,float budget,int nbr_employe,int nbr_clien
     this->nbr_employe=nbr_employe;
     this->nbr_client=nbr_client;
     this->nbr_bien=nbr_bien;
+}
+Agence::Agence(int id,QString adresse,float budget,int nbr_employe)
+{
+    this->id=id;
+    this->adresse=adresse;
+    this->budget=budget;
+    this->nbr_employe=nbr_employe;
 }
 // GETTERS
 int Agence::get_id()
@@ -209,4 +226,12 @@ QSqlQueryModel * Agence::tri_nbr_employe()
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("NBR_CLIENT"));
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("NBR_BIEN"));
     return model;
+}
+
+
+bool Agence::agence_exist(int id){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QString id_string= QString::number(id);
+    model->setQuery("select * from agence WHERE id="+id_string);
+    return  model->rowCount();
 }

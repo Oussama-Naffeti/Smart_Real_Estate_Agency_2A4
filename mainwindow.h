@@ -37,6 +37,14 @@ private slots:
 
     void on_pushButton_tri_nbr_employe_clicked();
 
+    void on_pushButton_statistique_clicked();
+
+    void on_pushButton_metier3_clicked();
+
+    void on_pushButton_imprimer_clicked();
+
+    void on_pushButton_traduction_clicked();
+
 private:
     Ui::MainWindow *ui;
     Agence Etmp;

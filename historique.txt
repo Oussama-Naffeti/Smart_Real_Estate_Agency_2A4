@@ -1,0 +1,6 @@
+jeu. avr. 7 02:49:03 2022 L'ajout d'une agence a la base de donnees d' ID : 2 a ete effectue avec succees
+jeu. avr. 7 09:52:15 2022 L'ajout d'une agence a la base de donnees d' ID : 4 a ete effectue avec succees
+jeu. avr. 7 09:53:01 2022 La modification d'une agence a la base de donnees d' ID : 8 a ete effectue avec succees
+jeu. avr. 7 09:53:30 2022 La suppression d'une agence a la base de donnees d' ID : 10 a ete effectue avec succees
+jeu. avr. 7 11:15:25 2022 L'ajout d'une agence a la base de donnees d' ID : 10 a ete effectue avec succees
+jeu. avr. 7 11:15:30 2022 L'ajout d'une agence a la base de donnees d' ID : 11 a ete effectue avec succees

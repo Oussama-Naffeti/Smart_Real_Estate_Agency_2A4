@@ -11,6 +11,7 @@ public:
     //Constructeurs
     Agence();
     Agence(int,QString,float,int,int,int);
+    Agence (int,QString,float,int);
 
     //Getters
     int get_id();
@@ -38,6 +39,7 @@ public:
     QSqlQueryModel * tri_budget();
     QSqlQueryModel * tri_nbr_client();
     QSqlQueryModel * tri_nbr_employe();
+    bool agence_exist(int);
 
 
 

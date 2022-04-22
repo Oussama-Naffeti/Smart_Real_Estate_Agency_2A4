@@ -46,32 +46,6 @@
      <attribute name="title">
       <string>Agences</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton_metier2">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Metier 2</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_metier3">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Metier 3</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_ajouter">
       <property name="geometry">
        <rect>
@@ -171,19 +145,6 @@
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_adresse">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>100</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
@@ -210,6 +171,55 @@
         <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBox_adresse">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>100</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+border-color: rgb(0, 170, 0);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Tunis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Manouba</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ariana</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ben Arouss</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sousse</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Bizerte</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nabeul</string>
+        </property>
+       </item>
+      </widget>
      </widget>
      <widget class="QPushButton" name="pushButton_supprimer">
       <property name="geometry">
@@ -224,30 +234,36 @@
        <string>Supprimer</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_metier1">
+     <widget class="QPushButton" name="pushButton_traduction">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>130</x>
         <y>20</y>
         <width>75</width>
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 170, 0);</string>
+      </property>
       <property name="text">
-       <string>Metier 1</string>
+       <string>Traduction</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_metier4">
+     <widget class="QPushButton" name="pushButton_statistique">
       <property name="geometry">
        <rect>
-        <x>430</x>
+        <x>470</x>
         <y>20</y>
         <width>75</width>
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 170, 0);</string>
+      </property>
       <property name="text">
-       <string>Metier 4</string>
+       <string>Statistique</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_modifier">
@@ -392,6 +408,22 @@ border-color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Nbr Employé</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_imprimer">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 170, 0);</string>
+      </property>
+      <property name="text">
+       <string>Imprimer</string>
       </property>
      </widget>
     </widget>
